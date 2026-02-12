@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Connect | Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nav.css">
+<link rel="stylesheet" href="hubstyle.css">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Styles required for the inserted team content */
+  .team-badge {
+    background: #7c3aed;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .card.team-post {
+    border-left: 4px solid #7c3aed;
+    background: rgba(124, 58, 237, 0.03);
+  }
+  .btn-create {
+    background: #7c3aed;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block; 
+  }
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="assets/logo-light.png" alt="RISE UP logo">
+    <span>RISE UP</span>
+  </div>
+
+  <div class="menu-btn" id="openBtn">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <nav id="navMenu">
+  <a href="index.html">Home</a>
+    <a href="project.html">Project</a>
+   
+    <a href="hub.html">Hub</a>
+    <a href="store.html">Store</a>
+    <a href="tutorial.html">my orders</a>
+    <a href="notifications.html" class="nav-notify">
+  <div class="notify-icon-wrapper">
+    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+      <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+    </svg>
+    <span class="notification-dot"></span>
+  </div>
+</a>
+
+    <div class="theme-switch" id="themeToggle">
+      <div class="switch-circle"></div>
+    </div>
+    
+    <a href="profile.html" class="nav-profile">
+      <img src="assets/me.png" alt="My profile">
+    </a>
+  </nav>
+</header>
+<div class="hub-glow"></div>
+
+<header class="app-header">
+  <h1 class="header-title hub-title">
+    Hub
+    <img src="assets/image.png" alt="Hub icon" class="hub-icon">
+  </h1>
+  <p class="hub-subtitle">
+    The bridge between Enactus Creators and the community. Collaborating for a greener future.
+  </p>
+
+  <div class="hub-search">
+    <div class="search-input-group">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Search projects or questions..." />
+    </div>
+
+        
+</header>
+
+<div class="filters-wrap">
+  <div class="pill-row">
+    <button class="pill active" data-filter="all">All Activity</button>
+    <button class="pill" data-filter="announcements">📢 Announcements</button>
+    <button class="pill" data-filter="updates">🛠️ Project Updates</button>
+    <button class="pill" data-filter="discussion">💬 Discussions</button>
+    <button class="pill" data-filter="volunteer">🤝 Volunteer Calls</button>
+    <button class="pill" data-filter="qa">❓ Community Q&A</button>
+    <button class="pill" data-filter="impact">🌱 Impact Stories</button>
+  </div>
+
+  <div class="filters-right">
+    <button class="btn-create" id="uploadProjectBtn">Start a discussion</button>
+  </div>
+</div>
+
+<section class="page-width main">
+
+  <div class="discussion-feed">
+    <a href="econova-details.html" class="card-link" data-category="announcements">
+      <div class="card team-post announcement" style="border-left: 4px solid #2dd4bf; background: rgba(45, 212, 191, 0.05);">
+        <div class="post-head">
+          <div class="avatar"><img src="assets/enactus.png"></div>
+          <div>
+            <div class="username">
+              Enactus REC <span class="team-badge">Team</span>
+              <span class="event-tag" style="background: #2dd4bf; color: #000; font-size: 10px; padding: 2px 6px; border-radius: 4px; margin-left: 8px; font-weight: 800;">BIG EVENT</span>
+            </div>
+            <div class="time">Official Announcement • 1h ago</div>
+          </div>
+        </div>
+        <div class="post-body" style="margin-top: 15px;">
+          <h3 style="color: #2dd4bf; margin-bottom: 5px; font-size: 20px;">🚀 ECO NOVA 2026: The Sustainability Hackathon</h3>
+          <p>Calling all innovators! Join our 24-hour hackathon to build circular economy solutions.</p>
+          <div class="event-details" style="display: flex; gap: 20px; margin: 15px 0; font-size: 13px; color: #94a3b8;">
+            <span>📅 Feb 25-26</span>
+            <span>💰 ₹25,000 Prize</span>
+          </div>
+          <button class="reg-btn" onclick="event.preventDefault(); alert('Redirecting to Registration Form...');" style="background: #2dd4bf; color: #000; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 700; cursor: pointer; margin-top: 10px;">
+            Register Now
+          </button>
+        </div>
+      </div>
+    </a>
+
+    <div class="card-link" data-category="impact">
+      <div class="card team-post milestone" style="border-left: 4px solid #facc15; background: rgba(250, 204, 21, 0.05);">
+        <div class="post-head">
+          <div class="avatar"><img src="assets/enactus.png"></div>
+          <div>
+            <div class="username">Enactus REC <span class="team-badge">Team</span></div>
+            <div class="time">Impact Update • 5h ago</div>
+          </div>
+        </div>
+        <div class="post-body" style="margin-top: 15px;">
+          <h3 style="color: #facc15;">🎉 We just crossed 500+ Project Ikebana Sales!</h3>
+          <p>Thanks to your incredible support, we have officially sold over <strong>500 Eco-Candles</strong> this quarter!</p>
+        </div>
+      </div>
+    </div>
+
+    <a href="comm.html" class="card-link" data-category="updates">
+      <div class="card team-post">
+        <div class="post-head">
+          <div class="avatar"><img src="assets/enactus.png"></div>
+          <div>
+            <div class="username">Enactus REC <span class="team-badge">Team</span></div>
+            <div class="time">Project Update · Project Ikebana · 2h ago</div>
+          </div>
+        </div>
+        <h4>New Lavender Scent Trial!</h4>
+        <p>We've successfully processed a new batch of dried lavender from local markets.</p>
+      </div>
+    </a>
+
+    <a href="comm.html" class="card-link" data-category="qa">
+      <div class="card">
+        <div class="post-head">
+          <div class="avatar"><img src="https://randomuser.me/api/portraits/men/32.jpg"></div>
+          <div>
+            <div class="username">Rahul Sharma</div>
+            <div class="time">Question · Tote Bags · 5h ago</div>
+          </div>
+        </div>
+        <p>Can we customize the hand-painted designs on the canvas totes for bulk corporate gifting?</p>
+      </div>
+    </a>
+
+    <a href="comm.html" class="card-link" data-category="updates">
+      <div class="card team-post">
+        <div class="post-head">
+          <div class="avatar"><img src="assets/enactus.png"></div>
+          <div>
+            <div class="username">Enactus REC <span class="team-badge">Team</span></div>
+            <div class="time">Project Update · Organic Fertilizer · 1d ago</div>
+          </div>
+        </div>
+        <h4>Nutrient Lab Results are In!</h4>
+        <p>Our latest compost batch shows a 20% increase in Nitrogen content.</p>
+      </div>
+    </a>
+
+    <a href="comm.html" class="card-link" data-category="qa">
+      <div class="card">
+        <div class="post-head">
+          <div class="avatar"><img src="https://randomuser.me/api/portraits/women/68.jpg"></div>
+          <div>
+            <div class="username">Sneha Kapoor</div>
+            <div class="time">Feedback · Seed Pens · 1d ago</div>
+          </div>
+        </div>
+        <p>Bought the basil seed pens last month—they just sprouted! Suggestion: maybe add Marigold seeds?</p>
+      </div>
+    </a>
+
+    <a href="comm.html" class="card-link" data-category="volunteer">
+      <div class="card team-post">
+        <div class="post-head">
+          <div class="avatar"><img src="assets/logo-light.png"></div>
+          <div>
+            <div class="username">Enactus REC <span class="team-badge">Team</span></div>
+            <div class="time">Volunteer Call · Agarbatti · 2d ago</div>
+          </div>
+        </div>
+        <h4>Volunteers needed for Floral Collection!</h4>
+        <p>We are expanding to two more temples in the city this Sunday. Need 4 volunteers.</p>
+      </div>
+    </a>
+
+    <a href="comm.html" class="card-link" data-category="discussion">
+      <div class="card">
+        <div class="post-head">
+          <div class="avatar"><img src="https://randomuser.me/api/portraits/women/33.jpg"></div>
+          <div>
+            <div class="username">Anjali Nair</div>
+            <div class="time">Community · 2h ago</div>
+          </div>
+        </div>
+        <p>Just lit the Project Ikebana Jasmine candle. The scent throw is amazing!</p>
+      </div>
+    </a>
+
+    <a href="comm.html" class="card-link" data-category="discussion">
+      <div class="card">
+        <div class="post-head">
+          <div class="avatar"><img src="https://randomuser.me/api/portraits/men/45.jpg"></div>
+          <div>
+            <div class="username">Ishaan Singh</div>
+            <div class="time">Community · 5h ago</div>
+          </div>
+        </div>
+        <p>I’ve been using the Seed Pens for my exams. Quick question: has anyone successfully grown the Tomato seeds yet?</p>
+      </div>
+    </a>
+
+    <a href="comm.html" class="card-link" data-category="discussion">
+      <div class="card">
+        <div class="post-head">
+          <div class="avatar"><img src="https://randomuser.me/api/portraits/women/12.jpg"></div>
+          <div>
+            <div class="username">Meera J.</div>
+            <div class="time">Community · 1d ago</div>
+          </div>
+        </div>
+        <p>Love the mission! Are there any plans to start collecting waste plastic from the campus?</p>
+      </div>
+    </a>
+
+    <a href="comm.html" class="card-link" data-category="qa">
+      <div class="card">
+        <div class="post-head">
+          <div class="avatar"><img src="https://randomuser.me/api/portraits/men/12.jpg"></div>
+          <div>
+            <div class="username">Vikram Das</div>
+            <div class="time">Question · Logistics · 3d ago</div>
+          </div>
+        </div>
+        <p>Do you offer doorstep pickup for old candles/wax that we want to donate to Project Ikebana?</p>
+      </div>
+    </a>
+  </div>
+
+  <div class="sidebar">
+    <div class="card">
+      <h4>Trending Topics</h4>
+      <div class="topic">#Sustainability</div>
+      <div class="topic">#CircularEconomy</div>
+      <div class="topic">#EcoNova2026</div>
+      <div class="topic">#CommunityImpact</div>
+    </div>
+
+    <div class="card">
+      <h4>Top Contributors</h4>
+      <div class="topic">Enactus REC</div>
+      <div class="topic">Rahul Sharma</div>
+      <div class="topic">Sneha Kapoor</div>
+    </div>
+  </div>
+<div class="lang-switcher">
+    <button id="toTamil" class="lang-btn btn-ta">தமிழ்</button>
+    <button id="toEnglish" class="lang-btn btn-en">EN</button>
+</div>
+
+<div id="google_translate_element" style="display:none;"></div>
+</section>
+
+<footer class="footer">
+  <p>© 2026 Connect · Enactus Social Enterprise</p>
+  <small>Demo mode — frontend prototype</small>
+</footer>
+<script src="nav.js"></script>
+<script src="hubapp.js"></script>
+</body>
+</html>

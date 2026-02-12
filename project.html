@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Connect — Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="nav.css" >
+ <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="projects.css" >
+  
+</head>
+<body>
+    <div class="background-glow"></div>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="assets/logo-light.png" alt="RISE UP logo">
+    <span>RISE UP</span>
+  </div>
+
+  <div class="menu-btn" id="openBtn">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <nav id="navMenu">
+  <a href="index.html">Home</a>
+    <a href="project.html">Project</a>
+   
+    <a href="hub.html">Hub</a>
+    <a href="store.html">Store</a>
+    <a href="tutorial.html">my orders</a>
+    <a href="notifications.html" class="nav-notify">
+  <div class="notify-icon-wrapper">
+    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+      <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+    </svg>
+    <span class="notification-dot"></span>
+  </div>
+</a>
+    <div class="theme-switch" id="themeToggle">
+      <div class="switch-circle"></div>
+    </div>
+    
+    <a href="profile.html" class="nav-profile">
+      <img src="assets/me.png" alt="My profile">
+    </a>
+  </nav>
+</header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-title">Projects
+    <span style="font-size: 42px; filter: brightness(0.6) saturate(0) brightness(1.2) sepia(1) hue-rotate(260deg) saturate(3);">🧩</span>
+      </div>
+      <div class="hero-sub">Browse community posts to help, collaborate, and share ideas</div>
+
+      <div class="search-row">
+        <div class="search-box">
+          <span>🔍</span>
+          <input placeholder="Search posts...">
+        </div>
+        <button class="search-cta">
+            <span>Create Post</span>
+  <span class="plus">＋</span>
+  
+</button>
+
+      </div>
+    </div>
+  </section>
+
+<div class="filters">
+    <div class="pills">
+      <div class="pill active">All</div>
+      <div class="pill">Home & Lifestyle</div>
+      <div class="pill">Stationary</div>
+      <div class="pill">Fashion/Accessories</div>
+      <div class="pill">Gardening & Agri</div>
+      <div class="pill">Food/Bevereges</div>
+    </div>
+    
+    <div class="sort">
+      <span>Sort by:</span>
+      <select class="sort-select">
+        <option value="trending">Trending</option>
+        <option value="top-rated">Top Rated</option>
+        <option value="newest">Newest</option>
+        <option value="discussion">Most Discussed</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="content-layout">
+    
+    <aside class="side-legend">
+      <span class="legend-label">Status Legend</span>
+      
+      <div class="legend-item">
+        <span class="dot live"></span>
+        <span>Idea</span>
+      </div>
+
+      <div class="legend-item">
+        <span class="dot process"></span>
+        <span>In Process</span>
+      </div>
+
+      <div class="legend-item">
+        <span class="dot completed"></span>
+        <span>Live</span>
+      </div>
+    </aside>
+
+    <main class="container">
+     <div class="grid">
+
+  <article class="card">
+    <div class="card-header">
+      <div class="badge category">
+        <span class="icon">🕯️</span>
+        <span>Home & Lifestyle</span>
+      </div>
+      <div class="badge status" style="background:rgba(34,197,94,0.15); color:#86efac; border-color:rgba(34,197,94,0.3)">
+        <span class="status-icon">✅</span>
+        <span>Live</span>
+      </div>
+    </div>
+    <h3 class="card-title">Candle Project</h3>
+    <p class="card-desc">Handcrafted decorative candles designed for ambiance and sustainable home decor.</p>
+    <div class="card-tags">
+      <span class="tag">Handmade</span>
+      <span class="tag">Decor</span>
+    </div>
+    <div class="card-footer">
+      <div class="user-info">
+        <img src="assets/me.png" alt="User" class="avatar-small">
+        <span class="username">Rajalakshmi Org</span>
+      </div>
+      <a href="project-detail.html" class="card-btn">View</a>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-header">
+      <div class="badge category">
+        <span class="icon">👜</span>
+        <span>Fashion/Accessories</span>
+      </div>
+      <div class="badge status" style="background:rgba(34,197,94,0.15); color:#86efac; border-color:rgba(34,197,94,0.3)">
+        <span class="status-icon">✅</span>
+        <span>Live</span>
+      </div>
+    </div>
+    <h3 class="card-title">Tote Bags Project</h3>
+    <p class="card-desc">Eco-friendly canvas tote bags featuring custom illustrations like Pikachu.</p>
+    <div class="card-tags">
+      <span class="tag">Eco-Friendly</span>
+      <span class="tag">Textiles</span>
+    </div>
+    <div class="card-footer">
+      <div class="user-info">
+        <img src="assets/me.png" alt="User" class="avatar-small">
+        <span class="username">Rajalakshmi Org</span>
+      </div>
+      <a href="project-detail.html" class="card-btn">View</a>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-header">
+      <div class="badge category">
+        <span class="icon">🖋️</span>
+        <span>Stationary</span>
+      </div>
+      <div class="badge status" style="background:rgba(34,197,94,0.15); color:#86efac; border-color:rgba(34,197,94,0.3)">
+        <span class="status-icon">✅</span>
+        <span>Live</span>
+      </div>
+    </div>
+    <h3 class="card-title">Seed Pens Project</h3>
+    <p class="card-desc">Biodegradable pens containing plant seeds to reduce plastic waste in stationery.</p>
+    <div class="card-tags">
+      <span class="tag">Zero Waste</span>
+      <span class="tag">Green</span>
+    </div>
+    <div class="card-footer">
+      <div class="user-info">
+        <img src="assets/me.png" alt="User" class="avatar-small">
+        <span class="username">Rajalakshmi Org</span>
+      </div>
+      <a href="project-detail.html" class="card-btn">View</a>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-header">
+      <div class="badge category">
+        <span class="icon">🌱</span>
+        <span>Gardening & Agri</span>
+      </div>
+      <div class="badge status" style="background:rgba(34,197,94,0.15); color:#86efac; border-color:rgba(34,197,94,0.3)">
+        <span class="status-icon">✅</span>
+        <span>Live</span>
+      </div>
+    </div>
+    <h3 class="card-title">Fertilizer Project</h3>
+    <p class="card-desc">Organic nutrient-rich compost and fertilizer for sustainable urban gardening.</p>
+    <div class="card-tags">
+      <span class="tag">Organic</span>
+      <span class="tag">Agri</span>
+    </div>
+    <div class="card-footer">
+      <div class="user-info">
+        <img src="assets/me.png" alt="User" class="avatar-small">
+        <span class="username">Rajalakshmi Org</span>
+      </div>
+      <a href="project-detail.html" class="card-btn">View</a>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-header">
+      <div class="badge category">
+        <span class="icon">✨</span>
+        <span>Home & Lifestyle</span>
+      </div>
+      <div class="badge status" style="background:rgba(34,197,94,0.15); color:#86efac; border-color:rgba(34,197,94,0.3)">
+        <span class="status-icon">✅</span>
+        <span>Live</span>
+      </div>
+    </div>
+    <h3 class="card-title">Agarbatti Project</h3>
+    <p class="card-desc">Natural incense sticks made from organic materials for a fragrant home environment.</p>
+    <div class="card-tags">
+      <span class="tag">Aromatic</span>
+      <span class="tag">Natural</span>
+    </div>
+    <div class="card-footer">
+      <div class="user-info">
+        <img src="assets/me.png" alt="User" class="avatar-small">
+        <span class="username">Rajalakshmi Org</span>
+      </div>
+      <a href="project-detail.html" class="card-btn">View</a>
+    </div>
+  </article>
+<article class="card">
+  <div class="card-header">
+    <div class="badge category">
+      <span class="icon">🧼</span>
+      <span>Home & Lifestyle</span>
+    </div>
+    <div class="badge status"> <span class="status-icon">⚡</span>
+      <span>Idea</span>
+    </div>
+  </div>
+  <h3 class="card-title">Newspaper Soap</h3>
+  <p class="card-desc">An innovative "single-use" soap sheet made by coating recycled newspaper or soluble paper with organic soap solution. Perfect for travel hygiene.</p>
+  <div class="card-tags">
+    <span class="tag">Recycled</span>
+    <span class="tag">Hygiene</span>
+  </div>
+  <div class="card-footer">
+    <div class="user-info">
+      <img src="assets/me.png" alt="User" class="avatar-small">
+      <span class="username">Rajalakshmi Org</span>
+    </div>
+    <a href="project-detail.html" class="card-btn">View</a>
+  </div>
+</article>
+
+<article class="card">
+  <div class="card-header">
+    <div class="badge category">
+      <span class="icon">🧺</span>
+      <span>Home & Lifestyle</span>
+    </div>
+    <div class="badge status" style="background:rgba(148,163,184,0.15); color:#e2e8f0; border-color:rgba(148,163,184,0.3)">
+      <span class="status-icon">⏳</span>
+      <span>In Process</span>
+    </div>
+  </div>
+  <h3 class="card-title">Grama Mat (Grass Mat)</h3>
+  <p class="card-desc">Traditional hand-woven mats made from natural river grass (Korai Paai). Currently training rural artisans on modern aesthetic patterns.</p>
+  <div class="card-tags">
+    <span class="tag">Handicraft</span>
+    <span class="tag">Rural Art</span>
+  </div>
+  <div class="card-footer">
+    <div class="user-info">
+      <img src="assets/me.png" alt="User" class="avatar-small">
+      <span class="username">Rajalakshmi Org</span>
+    </div>
+    <a href="project-detail.html" class="card-btn">View</a>
+  </div>
+</article>
+      </div>
+    </main>
+    <div class="lang-switcher">
+    <button id="toTamil" class="lang-btn btn-ta">தமிழ்</button>
+    <button id="toEnglish" class="lang-btn btn-en">EN</button>
+</div>
+
+<div id="google_translate_element" style="display:none;"></div>
+  </div>
+<script src="nav.js"></script>
+  <script src="projects.js"></script>
+</body>
+</html>

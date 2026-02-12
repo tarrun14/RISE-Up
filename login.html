@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Connect — Login</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="light">
+
+<header class="navbar">
+  <div class="logo">
+    <img src="assets/logo-light.png" alt="RISE UP logo">
+    <span>RISE UP</span>
+  </div>
+  <nav>
+    <div class="theme-switch" id="themeToggle">
+      <div class="switch-circle"></div>
+    </div>
+  </nav>
+</header>
+
+<main class="login-wrapper">
+  <div class="login-card">
+    <h2>Welcome Back</h2>
+    <p class="subtitle">Login to continue to Connect</p>
+
+    <div class="social-login">
+      <button class="social-btn google">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google icon">
+        Continue with Google
+      </button>
+      <button class="social-btn github">
+        <i class="fab fa-github"></i>
+        Continue with GitHub
+      </button>
+    </div>
+
+    <div class="divider">
+      <span>or login with email</span>
+    </div>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <i class="fas fa-envelope"></i>
+        <input type="email" id="email" placeholder="Email" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="password" placeholder="Password" required>
+      </div>
+
+      <div class="forgot-pass">
+        <a href="#">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+
+    <p class="extra">
+      Don’t have an account?
+      <a href="create.html">Create one</a>
+    </p>
+  </div>
+</main>
+
+<script src="login.js"></script>
+</body>
+</html>

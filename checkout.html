@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect — Checkout</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="orderstyle.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
+
+<header class="navbar">
+  <div class="logo">
+    <img src="assets/logo-light.png" alt="Connect logo">
+    <span>RISE UP</span>
+  </div>
+
+  <div class="menu-btn" id="openBtn">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <nav id="navMenu">
+     <a href="index.html">Home</a>
+    <a href="project.html">Project</a>
+   
+    <a href="hub.html">Hub</a>
+    <a href="store.html">Store</a>
+    <a href="tutorial.html">my orders</a>
+    <a href="notifications.html" class="nav-notify">
+  <div class="notify-icon-wrapper">
+    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+      <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+    </svg>
+    <span class="notification-dot"></span>
+  </div>
+</a>
+
+    <div class="theme-switch" id="themeToggle">
+      <div class="switch-circle"></div>
+    </div>
+    
+    <a href="profile.html" class="nav-profile">
+      <img src="assets/me.png" alt="My profile">
+    </a>
+  </nav>
+</header>
+
+<main class="checkout-container">
+  <section class="checkout-form">
+    <h2>Shipping Details</h2>
+    <form id="orderForm">
+      <div class="form-row">
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+      </div>
+      <input type="email" placeholder="Email Address" required>
+      <input type="text" placeholder="Full Address" required>
+      <div class="form-row">
+        <input type="text" placeholder="City" required>
+        <input type="text" placeholder="Pincode" required>
+      </div>
+
+      <h2 style="margin-top: 40px;">Payment Method</h2>
+      <div class="payment-options">
+        <label class="payment-card">
+          <input type="radio" name="pay" checked>
+          <span>UPI / QR Code</span>
+        </label>
+        <label class="payment-card">
+          <input type="radio" name="pay">
+          <span>Cash on Delivery</span>
+        </label>
+      </div>
+
+      <button type="submit" class="place-order-btn">Confirm Order</button>
+    </form>
+  </section>
+
+  <aside class="order-summary">
+    <div class="summary-card">
+      <h3>Order Summary</h3>
+      <div class="summary-item">
+        <img src="assets/candle.png" alt="Product">
+        <div>
+          <p class="p-name">Project Ikebana Candle</p>
+          <p class="p-qty">Qty: 1</p>
+        </div>
+        <span class="p-price">₹199</span>
+      </div>
+      
+      <hr>
+      
+      <div class="total-row">
+        <span>Subtotal</span>
+        <span>₹199</span>
+      </div>
+      <div class="total-row">
+        <span>Delivery</span>
+        <span style="color: #22c55e;">FREE</span>
+      </div>
+      <div class="total-row grand-total">
+        <span>Total</span>
+        <span>₹199</span>
+      </div>
+
+      <div class="impact-note">
+        <p>🌱 Your purchase supports 5 local artisans and diverts 500g of waste.</p>
+      </div>
+    </div>
+  </aside>
+  <div class="lang-switcher">
+    <button id="toTamil" class="lang-btn btn-ta">தமிழ்</button>
+    <button id="toEnglish" class="lang-btn btn-en">EN</button>
+</div>
+
+<div id="google_translate_element" style="display:none;"></div>
+</main>
+
+<script src="navbar.js"></script>
+
+</body>
+</html>

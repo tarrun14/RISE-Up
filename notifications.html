@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect — Store</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="projects.css">
+  <link rel="stylesheet" href="storestyle.css">
+  <link rel="stylesheet" href="notifications.css">
+ 
+</head>
+<body class="light">
+
+<header class="navbar">
+  <div class="logo">
+    <img src="assets/logo-light.png" alt="RISE UP logo">
+    <span>RISE UP</span>
+  </div>
+
+  <div class="hamburger" id="hamburgerBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="navMenu">
+     <a href="index.html">Home</a>
+    <a href="project.html">Project</a>
+   
+    <a href="hub.html">Hub</a>
+    <a href="store.html">Store</a>
+    <a href="tutorial.html">my orders</a>
+    <a href="notifications.html" class="nav-notify">
+  <div class="notify-icon-wrapper">
+    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+      <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+    </svg>
+    <span class="notification-dot"></span>
+  </div>
+</a>
+
+    <div class="theme-switch" id="themeToggle">
+      <div class="switch-circle"></div>
+    </div>
+
+    <a href="profile.html" class="nav-profile">
+      <img src="assets/me.png" alt="My profile">
+    </a>
+  </nav>
+
+  <div class="menu-overlay" id="menuOverlay"></div>
+</header>
+<main class="notify-container">
+  
+  <div class="notify-header">
+    <h1>Notifications</h1>
+    <button class="mark-read-btn">Mark all as read</button>
+  </div>
+
+  <div class="notify-tabs">
+    <button class="tab active">All</button>
+    <button class="tab">Orders</button>
+    <button class="tab">Alerts</button>
+  </div>
+
+  <div class="notify-list">
+    
+    <div class="notify-item unread">
+      <div class="icon-box delivery">📦</div>
+      <div class="notify-content">
+        <p class="notify-title">Order Delivered</p>
+        <p class="notify-msg">Your <strong>Bamboo Toothbrush</strong> has arrived at your doorstep.</p>
+        <span class="notify-time">2 hours ago</span>
+      </div>
+      <div class="unread-dot"></div>
+    </div>
+
+    <div class="notify-item unread">
+      <div class="icon-box success">🌿</div>
+      <div class="notify-content">
+        <p class="notify-title">Impact Milestone</p>
+        <p class="notify-msg">Congratulations! You've diverted <strong>5kg of waste</strong> this month.</p>
+        <span class="notify-time">5 hours ago</span>
+      </div>
+      <div class="unread-dot"></div>
+    </div>
+
+    <div class="notify-item">
+      <div class="icon-box alert">🔒</div>
+      <div class="notify-content">
+        <p class="notify-title">Security Alert</p>
+        <p class="notify-msg">Your password was successfully changed.</p>
+        <span class="notify-time">1 day ago</span>
+      </div>
+    </div>
+
+    <div class="notify-item">
+      <div class="icon-box promo">🎟️</div>
+      <div class="notify-content">
+        <p class="notify-title">New Coupon Available</p>
+        <p class="notify-msg">Use code <strong>EARTH20</strong> for 20% off your next order.</p>
+        <span class="notify-time">3 days ago</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="lang-switcher">
+    <button id="toTamil" class="lang-btn btn-ta">தமிழ்</button>
+    <button id="toEnglish" class="lang-btn btn-en">EN</button>
+</div>
+
+<div id="google_translate_element" style="display:none;"></div>
+</main>
+<body>
+  <script src="nav.js"></script>
+  <script src="stored.js"></script>
+</body>
+</html>
+</body>

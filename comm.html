@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Best tools for prototyping | Connect</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hubstyle.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="nav.css">
+</head>
+
+<body>
+  <!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">
+    <img src="assets/logo-light.png" alt="Connect logo">
+    <span>RISE UP</span>
+  </div>
+  <div class="hamburger" id="hamburgerBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav>
+     <a href="index.html">Home</a>
+    <a href="project.html">Project</a>
+   
+    <a href="hub.html">Hub</a>
+    <a href="store.html">Store</a>
+    <a href="tutorial.html">my orders</a>
+    <a href="notifications.html" class="nav-notify">
+  <div class="notify-icon-wrapper">
+    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+      <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+    </svg>
+    <span class="notification-dot"></span>
+  </div>
+</a>
+
+    <!-- Theme Toggle -->
+    <div class="theme-switch" id="themeToggle">
+      <div class="switch-circle"></div>
+    </div>
+     <a href="profile.html" class="nav-profile">
+      <img src="assets/me.png" alt="My profile">
+    </a>
+  </nav>
+</header>
+
+
+<!-- HEADER -->
+<header class="app-header">
+  
+  <a href="hub.html" class="back-link">
+    ← Back to Hub
+  </a>
+
+  <h1 class="header-title">Best tools for prototyping?</h1>
+
+  <div class="tags">
+    <div class="tag">Design</div>
+    <div class="tag">Advice</div>
+    <div class="tag">UI/UX</div>
+  </div>
+
+</header>
+<!-- MAIN -->
+<section class="page-width main">
+
+  <!-- LEFT : DISCUSSION -->
+  <div>
+
+    <!-- ORIGINAL POST -->
+    <div class="card">
+      <div class="post-head">
+        <div class="avatar">
+          <img src="https://randomuser.me/api/portraits/men/69.jpg">
+        </div>
+        <div>
+          <div class="username">John Miller <span class="cp">⭐ 420</span></div>
+          <div class="time">Posted 2 hours ago</div>
+        </div>
+      </div>
+
+      <p>
+        I’m starting to work on a few new app ideas and would love to hear what tools
+        you all use for prototyping.
+        <br><br>
+        I’m especially interested in tools that allow quick iteration, collaboration,
+        and interactive flows. Bonus points if they work well with developers.
+      </p>
+
+      <h4 style="margin-top:28px">24 Replies</h4>
+
+      <!-- REPLY 1 -->
+      <div class="reply">
+        <div class="post-head">
+          <div class="avatar"><img src="https://randomuser.me/api/portraits/men/72.jpg"></div>
+          <div>
+            <div class="username">Alex Tan <span class="cp">⭐ 350</span></div>
+            <div class="time">6 hours ago</div>
+          </div>
+        </div>
+
+        <p>
+          Figma is hands-down my favorite. It’s fast, collaborative, and the
+          community plugins save a ton of time.
+          <br><br>
+          Dev mode also makes handoff way smoother than before.
+        </p>
+
+        <div class="reply-actions">👍 15 · ❤️ 8 · Reply</div>
+      </div>
+
+      <!-- REPLY 2 -->
+      <div class="reply">
+        <div class="post-head">
+          <div class="avatar"><img src="https://randomuser.me/api/portraits/men/33.jpg"></div>
+          <div>
+            <div class="username">Sarah Lee <span class="cp">⭐ 160</span></div>
+            <div class="time">4 hours ago</div>
+          </div>
+        </div>
+
+        <p>
+          +1 for Figma. If you’re already deep in Adobe, XD still works well,
+          but Figma’s ecosystem is just bigger now.
+        </p>
+
+        <div class="reply-actions">👍 9 · ❤️ 5 · Reply</div>
+      </div>
+
+      <!-- REPLY 3 (LONG / EXPERT) -->
+      <div class="reply">
+        <div class="post-head">
+          <div class="avatar"><img src="https://randomuser.me/api/portraits/men/31.jpg"></div>
+          <div>
+            <div class="username">Mark Johnson <span class="cp">⭐ 620</span></div>
+            <div class="time">3 hours ago</div>
+          </div>
+        </div>
+
+        <p>
+          It really depends on what stage you’re at.
+          <br><br>
+          • **Early ideation:** Pen & paper → Figma low-fi  
+          • **User testing:** Figma / Framer  
+          • **High-fidelity + motion:** Framer or ProtoPie  
+          • **Dev handoff:** Figma (Dev Mode)
+          <br><br>
+          Don’t over-engineer early. Speed matters more than polish.
+        </p>
+
+        <div class="reply-actions">👍 22 · ❤️ 11 · Reply</div>
+
+        <!-- NESTED FOLLOW-UP -->
+        <div class="reply" style="margin-left:40px;margin-top:14px;">
+          <div class="post-head">
+            <div class="avatar"><img src="https://randomuser.me/api/portraits/men/69.jpg"></div>
+            <div>
+              <div class="username">John Miller</div>
+              <div class="time">1 hour ago</div>
+            </div>
+          </div>
+
+          <p>
+            This breakdown is super helpful — thanks!  
+            Curious, do you ever prototype directly in code?
+          </p>
+
+          <div class="reply-actions">👍 6 · Reply</div>
+        </div>
+      </div>
+
+      <!-- REPLY 4 -->
+      <div class="reply">
+        <div class="post-head">
+          <div class="avatar"><img src="https://randomuser.me/api/portraits/men/11.jpg"></div>
+          <div>
+            <div class="username">Nina Patel <span class="cp">⭐ 210</span></div>
+            <div class="time">2 hours ago</div>
+          </div>
+        </div>
+
+        <p>
+          If you’re comfortable with code, tools like React + Storybook
+          can actually replace prototyping tools at later stages.
+        </p>
+
+        <div class="reply-actions">👍 7 · ❤️ 3 · Reply</div>
+      </div>
+
+      <!-- REPLY INPUT -->
+      <div class="reply-box">
+        <input placeholder="Write your reply here...">
+        <button>Post Reply</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- RIGHT : SIDEBAR -->
+  <div class="sidebar">
+
+    <div class="card">
+      <h4>Trending Topics</h4>
+      <div class="topic">#UI/UX Design</div>
+      <div class="topic">#Figma</div>
+      <div class="topic">#Prototyping</div>
+      <div class="topic">#Startup Tools</div>
+    </div>
+
+    <div class="card">
+      <h4>Related Discussions</h4>
+      <div class="topic">Best UI libraries for React?</div>
+      <div class="topic">How to validate startup ideas?</div>
+      <div class="topic">Design handoff best practices</div>
+    </div>
+    
+    
+
+  <!-- RELATED PROJECT (BASED ON TRENDING TOPIC) -->
+ <div class="card project-card">
+  <h4>Trending Apps</h4>
+
+  <!-- APP 1 -->
+  <div class="project-head">
+    <div class="project-icon">F</div>
+    <div>
+      <strong>FinFetch</strong>
+      <div class="project-sub">Personal Finance App</div>
+    </div>
+  </div>
+
+  <p class="project-desc">
+    A sleek finance app to manage investments, track expenses,
+    and analyze spending habits.
+  </p>
+
+  <button class="project-btn">View Project</button>
+
+  <hr style="margin:18px 0;border:none;border-top:1px solid #e5e7eb">
+
+  <!-- APP 2 -->
+  <div class="project-head">
+    <div class="project-icon">C</div>
+    <div>
+      <strong>Connect</strong>
+      <div class="project-sub">Community Platform</div>
+    </div>
+  </div>
+
+  <p class="project-desc">
+    A collaboration hub where creators, developers, and founders
+    discuss ideas, share projects, and grow together.
+  </p>
+
+  <button class="project-btn">View App</button>
+</div>
+
+
+  <!-- RELATED APP -->
+  <div class="card project-card">
+    <h4>Related App</h4>
+
+    <div class="project-head">
+      <div class="project-icon">P</div>
+      <div>
+        <strong>ProtoFlow</strong>
+        <div class="project-sub">Prototyping Tool</div>
+      </div>
+    </div>
+
+    <p class="project-desc">
+      A lightweight prototyping tool focused on fast iterations,
+      user flows, and developer-friendly handoff.
+    </p>
+
+    <button class="project-btn">View App</button>
+  </div>
+
+  </div>
+ <div class="lang-switcher">
+    <button id="toTamil" class="lang-btn btn-ta">தமிழ்</button>
+    <button id="toEnglish" class="lang-btn btn-en">EN</button>
+</div>
+
+<div id="google_translate_element" style="display:none;"></div>
+</section>
+<script src="hubapp.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>

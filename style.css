@@ -1,0 +1,444 @@
+/* ================= VARIABLES & RESET ================= */
+:root {
+  --bg-dark: #020617;
+  --text-light: #0f172a;
+  --text-dark: #f8fafc;
+  --accent: linear-gradient(90deg, #3b82f6, #22c55e, #8b5cf6);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  transition: background 0.4s, color 0.4s;
+  overflow-x: hidden;
+}
+
+/* ================= LIGHT / DARK THEME BASE ================= */
+body.light {
+  color: var(--text-light);
+  background-color: #ffffff;
+}
+
+body.dark {
+  background-color: #050505;
+  color: var(--text-dark);
+  position: relative;
+  z-index: 1;
+}
+
+/* ================= BACKGROUND GLOW ================= */
+.background-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.4), transparent 50%),
+    radial-gradient(circle at 100% 0%, rgba(34, 197, 94, 0.3), transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(139, 92, 246, 0.3), transparent 60%);
+  filter: blur(50px);
+  animation: glowPulse 8s ease-in-out infinite;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+body.dark .background-glow { opacity: 1; }
+
+
+/* ================= NAVBAR (MATCHING TUTORIAL EXACTLY) ================= */
+.navbar {
+  position: fixed; /* Fixed like tutorial */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; /* Exact height match */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 1000;
+  
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+  transition: all 0.3s ease;
+}
+
+body.dark .navbar {
+  background: rgba(2, 6, 23, 0.75);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+  color: #fff;
+}
+
+/* Logo */
+.logo {
+  font-weight: 700;
+  font-size: 22px; /* Tutorial size */
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo img { width: 36px; }
+body.dark .logo { color: #fff; }
+
+/* NAV CONTAINER */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Tighter gap for pill shape */
+}
+
+/* 1. LINKS (PILL SHAPE - EXACT MATCH) */
+nav a:not(.nav-profile) {
+  text-decoration: none;
+  font-size: 14px; /* Smaller font match */
+  font-weight: 500;
+  color: #94a3b8; /* Muted text */
+  background: transparent;
+  padding: 8px 16px; 
+  border-radius: 24px; /* Pill shape */
+  transition: background 0.2s ease, color 0.2s ease;
+  margin-right: 0; /* Reset previous margins */
+}
+
+/* Hover State (Dark pill) */
+nav a:not(.nav-profile):hover {
+  background: #1e293b; 
+  color: #ffffff !important;
+  transform: none; /* Removed the jumpy animation */
+}
+
+body.dark nav a:not(.nav-profile):hover {
+  background: #334155; 
+  color: #fff !important;
+}
+
+/* 2. PROFILE PICTURE (DESKTOP) */
+.nav-profile {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.nav-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+.nav-profile:hover img { transform: scale(1.05); }
+
+/* 3. HAMBURGER MENU (HIDDEN DESKTOP) */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #1e293b;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+body.dark .bar { background-color: white; }
+
+/* 4. THEME TOGGLE */
+.theme-switch {
+  width: 44px; /* Smaller toggle like tutorial */
+  height: 24px;
+  background: #cbd5e1;
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: 8px;
+}
+.switch-circle {
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: 0.3s;
+}
+body.dark .theme-switch { background: #6366f1; }
+body.dark .switch-circle { transform: translateX(20px); }
+
+
+/* ================= HERO SECTION ================= */
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* Top padding adjusted because navbar is now Fixed (80px) */
+  padding: 140px 20px 140px; 
+  z-index: 1;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat-x;
+  background-position: 0 center;
+  background-size: auto 100%;
+  z-index: -2;
+  animation: slideBg 60s linear infinite;
+}
+body.light .hero::before { background-image: url("assets/wave-light.png"); }
+body.dark .hero::before { background-image: url("assets/wave-dark.png"); }
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+body.light .hero::after {
+  background: radial-gradient(80% 60% at 50% 0%, rgba(255,255,255,0.75), rgba(255,255,255,0.35), transparent 70%);
+}
+body.dark .hero::after {
+  background: radial-gradient(80% 60% at 50% 0%, rgba(99,102,241,0.35), rgba(59,130,246,0.18), transparent 70%);
+}
+
+.hero-logo {
+  width: 140px;
+  position: relative;
+  z-index: 10;
+}
+body.light .hero-logo {
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.2));
+  content: url("assets/logo-light.png");
+}
+body.dark .hero-logo {
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.4));
+  content: url("assets/logo-dark.png");
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+
+.motto {
+  font-family: 'Caveat', cursive;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-top: -10px;
+  margin-bottom: 30px;
+  display: inline-block;
+  position: relative;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #22d3ee, #a3e635, #f0abfc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 1px rgba(0,0,0,1)) drop-shadow(0 4px 5px rgba(0,0,0,0.9));
+  z-index: 5;
+}
+
+.description {
+  max-width: 560px;
+  margin: 20px auto;
+  padding: 10px 16px;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+body.light .description { background: rgba(255, 255, 255, 0.4); color: #0f172a; }
+body.dark .description { background: rgba(0, 0, 0, 0.35); color: #f8fafc; }
+
+/* ================= BUTTONS ================= */
+.actions { margin-top: 35px; text-align: center; }
+.btn {
+  padding: 14px 26px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block; 
+  margin: 0 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.primary { background: var(--accent); color: white; }
+.primary:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.25);
+  transform: translateY(-2px);
+}
+.secondary { border: 2px solid rgba(148,163,184,0.6); color: inherit; }
+.secondary:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 0 0 3px rgba(148,163,184,0.35);
+  transform: translateY(-2px);
+}
+
+/* ================= FEATURES SECTION ================= */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 80px 40px;
+  margin-top: -60px;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+.feature {
+  border-radius: 20px;
+  padding: 28px 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+body.light .feature {
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+body.dark .feature {
+  background: rgba(17, 24, 39, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+/* ================= FOOTER ================= */
+footer { text-align: center; padding: 25px; opacity: 0.75; }
+
+/* ================= ANIMATIONS ================= */
+@keyframes glowPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+@keyframes slideBg {
+  from { background-position-x: 0; }
+  to { background-position-x: 2000px; }
+}
+
+/* ================= LOGO SWAP HELPER ================= */
+body.light .logo img { content: url("assets/logo-light.png"); }
+body.dark .logo img { content: url("assets/logo-dark.png"); }
+
+
+/* ================= MOBILE OPTIMIZATION (MATCHING TUTORIAL DRAWER) ================= */
+@media (max-width: 900px) {
+
+  /* 1. Layout Adjustments */
+  .navbar { padding: 0 24px; height: 70px; }
+  
+  .hero { padding-top: 60px; padding-bottom: 100px; }
+  .hero h1 { font-size: 2.5rem; }
+  .motto { font-size: 2.4rem; }
+  .features { padding: 40px 20px; margin-top: -40px; }
+
+  /* 2. MENU BUTTON VISIBLE */
+  .mobile-menu-btn { display: flex; z-index: 2000; }
+
+  /* 3. SIDE DRAWER MENU (EXACT MATCH) */
+  nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    
+    width: 280px; 
+    max-width: 80vw;
+    height: 100vh;
+    
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+    
+    flex-direction: column;
+    justify-content: flex-start; /* Items at top */
+    align-items: center;
+    padding-top: 100px;          /* Space for X button */
+    gap: 20px;
+    
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 1500;
+  }
+  
+  /* Active State */
+  nav.active { transform: translateX(0); }
+  
+  body.dark nav {
+    background: rgba(2, 6, 23, 0.98);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    border-left: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* 4. PROFILE PICTURE LOGIC (MOVED TO TOP) */
+  .nav-profile {
+    order: -1; /* THIS FORCES IT TO THE TOP */
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+  .nav-profile img {
+    width: 64px;
+    height: 64px;
+    border: 3px solid rgba(59, 130, 246, 0.2);
+    padding: 3px;
+  }
+
+  /* 5. LINKS (RESET PILL SHAPE FOR MOBILE LIST) */
+  nav a:not(.nav-profile) {
+    width: 100%;
+    text-align: center;
+    font-size: 20px; 
+    font-weight: 600;
+    padding: 10px;
+    background: transparent !important; /* No background pills on mobile */
+    color: #334155;
+    border-radius: 0;
+  }
+  body.dark nav a:not(.nav-profile) { color: #cbd5e1; }
+  
+  nav a:not(.nav-profile):hover,
+  nav a.active {
+    color: #3b82f6 !important;
+  }
+
+  /* 6. HAMBURGER ANIMATION */
+  .mobile-menu-btn.open .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+  .mobile-menu-btn.open .bar:nth-child(2) { opacity: 0; }
+  .mobile-menu-btn.open .bar:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+  
+  body.light .mobile-menu-btn.open .bar { background-color: #1e293b; }
+  body.dark .mobile-menu-btn.open .bar { background-color: #fff; }
+
+  /* 7. Theme Switch Position */
+  .theme-switch {
+    order: 2; /* Bottom */
+    transform: scale(1.2);
+    margin-top: 20px;
+  }
+
+  /* 8. Mobile Buttons (Stacked) */
+  .actions {
+    display: flex; flex-direction: column;
+    gap: 15px; width: 100%; max-width: 240px;
+    margin: 35px auto 0;
+  }
+  .btn {
+    width: 100%; margin: 0; display: block;
+    text-align: center; font-size: 0.95rem; padding: 12px 20px;
+  }
+}

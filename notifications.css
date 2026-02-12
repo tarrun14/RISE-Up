@@ -1,0 +1,278 @@
+/* --- 1. CORE VARIABLES (Matching your system) --- */
+:root {
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: #cbd5e1;
+  --accent-color: #7c3aed;
+  --hover-bg: #f1f5f9;
+}
+
+body.dark {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
+  --hover-bg: #334155;
+}
+
+/* --- 2. LAYOUT --- */
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  padding-top: 100px; /* Space for navbar */
+  transition: 0.3s ease;
+}
+
+.notify-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* --- 3. HEADER & TABS --- */
+.notify-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.notify-header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.mark-read-btn {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.notify-tabs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-weight: 600;
+  padding: 5px 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab.active {
+  color: var(--text-primary);
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -11px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+/* --- 4. NOTIFICATION LIST --- */
+.notify-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.notify-item {
+  display: flex;
+  align-items: center;
+  background: var(--card-bg);
+  padding: 15px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  gap: 15px;
+  transition: transform 0.2s, background 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+
+.notify-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-color);
+}
+
+/* --- UNREAD STATE STYLING --- */
+.notify-item.unread {
+  background: var(--card-bg);
+  border-left: 4px solid var(--accent-color); /* Left accent bar */
+}
+
+.unread-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  margin-left: auto; /* Pushes dot to far right */
+}
+
+/* --- ICONS --- */
+.icon-box {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.delivery { background: #e0f2fe; color: #0284c7; } /* Blue */
+.success  { background: #dcfce7; color: #16a34a; } /* Green */
+.alert    { background: #fee2e2; color: #dc2626; } /* Red */
+.promo    { background: #f3e8ff; color: #9333ea; } /* Purple */
+
+/* Dark Mode Adjustments for Icons */
+body.dark .delivery { background: #0c4a6e; color: #bae6fd; }
+body.dark .success  { background: #14532d; color: #bbf7d0; }
+body.dark .alert    { background: #7f1d1d; color: #fecaca; }
+body.dark .promo    { background: #581c87; color: #e9d5ff; }
+
+/* --- CONTENT TEXT --- */
+.notify-content {
+  flex-grow: 1;
+}
+
+.notify-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin: 0 0 4px 0;
+  color: var(--text-primary);
+}
+
+.notify-msg {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0 0 6px 0;
+  line-height: 1.4;
+}
+
+.notify-time {
+  font-size: 11px;
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) {
+  .notify-container { padding: 15px; }
+  .notify-header h1 { font-size: 20px; }
+  .icon-box { width: 35px; height: 35px; font-size: 16px; }
+}
+/* --- NOTIFICATION ITEM LAYOUT --- */
+.notify-item {
+  display: flex; /* Aligns icon, text, and dot in a row */
+  align-items: center;
+  background: var(--card-bg);
+  padding: 15px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  gap: 15px;
+  transition: transform 0.2s, border-color 0.2s;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.notify-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-color);
+}
+
+/* --- ICON BOX BACKGROUNDS --- */
+.icon-box {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* Light Mode Colors */
+.delivery { background: #e0f2fe; color: #0284c7; } /* Blue */
+.success  { background: #dcfce7; color: #16a34a; } /* Green */
+.alert    { background: #fee2e2; color: #dc2626; } /* Red */
+.promo    { background: #f3e8ff; color: #9333ea; } /* Purple */
+
+/* Dark Mode Color Adjustments */
+body.dark .delivery { background: #0c4a6e; color: #bae6fd; }
+body.dark .success  { background: #14532d; color: #bbf7d0; }
+body.dark .alert    { background: #7f1d1d; color: #fecaca; }
+body.dark .promo    { background: #581c87; color: #e9d5ff; }
+
+/* --- UNREAD INDICATOR --- */
+.notify-item.unread {
+  border-left: 4px solid var(--accent-color);
+}
+
+.unread-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  margin-left: auto; /* Pushes the dot to the right side */
+}
+.nav-notify {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  position: relative;
+  transition: 0.3s;
+  color: var(--text-secondary); /* Matches your other links */
+}
+
+.nav-notify:hover {
+  color: var(--accent-color);
+}
+
+.notify-icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* The Red Alert Dot */
+.notification-dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 8px;
+  height: 8px;
+  background-color: #ff4d4d; /* Bright red */
+  border-radius: 50%;
+  border: 2px solid var(--card-bg); /* Prevents merging with background */
+}
+
+/* Ensure it looks good in the mobile sidebar */
+@media screen and (max-width: 768px) {
+  .nav-notify {
+    order: -1; /* Puts it at the top of the mobile list */
+    margin-bottom: 10px;
+    justify-content: flex-start;
+  }
+}

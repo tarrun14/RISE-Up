@@ -1,0 +1,1419 @@
+:root {
+  --bg-1: #071029; /* deep */
+  --card: #0f1726;
+  --accent-from: #7c7cff;
+  --accent-to: #4dd4c6;
+  --glass: rgba(255, 255, 255, 0.04);
+  --muted: rgba(255, 255, 255, 0.65);
+}
+
+/* reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  background: radial-gradient(1200px 600px at 50% 0%, #040615 0%, #051026 35%, #081826 100%);
+  color: #e6eef8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* NAVBAR */
+.navbar {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.72) 0%, rgba(2, 6, 23, 0.56) 100%);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 36px;
+  height: 36px;
+}
+
+.logo span {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile-btn img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: block;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  padding: 56px 20px 36px;
+  overflow: visible;
+  background-image: url('assets/hero-cosmic.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* hero glow layer */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(600px 240px at 20% 20%, rgba(124, 124, 255, 0.16), transparent 20%),
+    radial-gradient(480px 200px at 80% 30%, rgba(77, 212, 198, 0.12), transparent 18%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 22px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.hero-sub {
+  color: rgba(230, 238, 248, 0.8);
+  margin-bottom: 22px;
+}
+
+.search-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 60%;
+  min-width: 360px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  padding: 14px 18px;
+  border-radius: 30px;
+  box-shadow: 0 12px 30px rgba(10, 15, 25, 0.6);
+}
+
+.search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  outline: none;
+  font-size: 15px;
+}
+
+.search-cta {
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+  color: white;
+  font-weight: 600;
+  border: 0;
+  cursor: pointer;
+}
+
+/* FILTER ROW */
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Changing from space-between to center */
+  gap: 20px; /* Adds space between the tags and the sort button */
+  max-width: 1200px;
+  margin: 18px auto;
+  padding: 12px 22px;
+}
+
+.pills {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.pill {
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--muted);
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.pill.active {
+  background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+  color: #071026;
+}
+
+.sort {
+  color: var(--muted);
+}
+
+/* PROJECT GRID */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 22px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* ================= CARD CONTAINER ================= */
+.card {
+  /* Deep Blue Glass Background */
+  background: linear-gradient(
+    180deg, 
+    rgba(30, 41, 59, 0.7) 0%, 
+    rgba(15, 23, 42, 0.6) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  /* Border & Glow */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2a7aef, #6fe0c6);
+  font-weight: 600;
+  color: #081026;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: rgba(230, 238, 248, 0.8);
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.meta .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #c7d2fe;
+}
+
+.meta .who {
+  font-weight: 600;
+}
+
+.meta .meta-right {
+  margin-left: auto;
+}
+
+.view-btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+/* responsive */
+@media (max-width: 980px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-box {
+    width: 86%;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+}
+
+.avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav-profile {
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-profile img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+
+body.dark .nav-profile img {
+  border-color: rgba(255,255,255,0.2);
+}
+.nav-profile img {
+  width: 52px;   /* was 48px */
+  height: 52px;  /* was 48px */
+}
+.navbar {
+  height: 64px;
+}
+
+/* ================= HEADER BADGES ================= */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/* Category Badge (Left) */
+.badge.category {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(59, 130, 246, 0.15); /* Blue tint */
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #93c5fd; /* Light Blue Text */
+}
+
+/* Status Badge (Right - Yellow) */
+.badge.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(234, 179, 8, 0.1); /* Gold tint */
+  border: 1px solid rgba(234, 179, 8, 0.2);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fde047; /* Gold Text */
+}
+
+/* ================= CONTENT ================= */
+.card-title {
+  color: #f8fafc; /* White */
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.card-desc {
+  color: #94a3b8; /* Slate gray */
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex-grow: 1; /* Pushes footer down if cards have different heights */
+}
+
+/* ================= TAGS ================= */
+.card-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+/* ================= FOOTER ================= */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Separator line */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #e2e8f0;
+}
+
+.avatar-small {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.username {
+  font-weight: 600;
+}
+
+.rating {
+  color: #fbbf24; /* Star color */
+  font-size: 12px;
+}
+
+.extra-info {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* View Button */
+.card-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  transition: opacity 0.2s;
+}
+
+.card-btn:hover {
+  opacity: 0.9;
+}
+/* Container for alignment */
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8; /* Muted slate color */
+  font-size: 14px;
+}
+
+/* The actual dropdown */
+.sort-select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #f8fafc; /* Near white text */
+  padding: 4px 12px;
+  cursor: pointer;
+  outline: none;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.sort-select:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Styling the options inside (Browser support varies) */
+.sort-select option {
+  background: #0f172a; /* Dark background to match your theme */
+  color: #f8fafc;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* 🔥 Glow gradients */
+  background:
+    radial-gradient(circle at 30% 30%, rgba(59,130,246,0.25), transparent 40%),
+    radial-gradient(circle at 70% 40%, rgba(34,197,94,0.2), transparent 45%),
+    radial-gradient(circle at 50% 70%, rgba(139,92,246,0.2), transparent 45%);
+
+  /* Fade glow at bottom */
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+
+  z-index: 0;
+}
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(59,130,246,0.25),
+    rgba(34,197,94,0.15),
+    transparent 70%
+  );
+  filter: blur(80px);
+  z-index: 0;
+}
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ================= LIGHT MODE ================= */
+body.light {
+  background: linear-gradient(#ffffff, #f8fafc);
+  color: #0f172a;
+}
+body.light .navbar {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+body.light .nav-links a {
+  color: #334155;
+}
+body.light .hero {
+  background: linear-gradient(120deg, #7c7cff, #4dd4c6);
+}
+
+body.light .hero-title,
+body.light .hero-sub {
+  color: #ffffff;
+}
+body.light .search-box {
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+}
+
+body.light .search-box input {
+  color: #0f172a;
+}
+body.light .pill {
+  background: rgba(15, 23, 42, 0.06);
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+body.light .pill.active {
+  background: linear-gradient(90deg, #7c7cff, #4dd4c6);
+  color: #ffffff;
+}
+body.light .sort {
+  color: #0f172a;
+}
+
+body.light .sort-select {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+}
+
+body.light .sort-select option {
+  background: #ffffff;
+  color: #0f172a;
+}
+body.light .card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+}
+
+body.light .card-title {
+  color: #0f172a;
+}
+
+body.light .card-desc {
+  color: #475569;
+}
+body.light .tag {
+  background: rgba(15, 23, 42, 0.06);
+  color: #334155;
+}
+
+body.light .user-info {
+  color: #0f172a;
+}
+
+body.light .extra-info {
+  color: #64748b;
+}
+body.light .card-btn {
+  background: linear-gradient(135deg, #7c7cff, #4dd4c6);
+  color: #ffffff;
+}
+body.light .hero {
+  background: linear-gradient(
+    120deg,
+    #7c7cff 0%,
+    #6bd4e6 45%,
+    #4dd4c6 100%
+  );
+}
+body.light .hero::before {
+  background: none;
+  filter: none;
+}
+body.light .hero-glow {
+  display: none;
+}body.light .hero-title {
+  color: #ffffff;
+}
+
+body.light .hero-sub {
+  color: rgba(255,255,255,0.9);
+}
+body.light .search-box {
+  background: #ffffff;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.18);
+}
+
+body.light .search-box input {
+  color: #0f172a;
+}
+.legend-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: rgba(30, 41, 59, 0.4);
+  padding: 10px 25px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-left: 20px;
+}
+
+.legend-label {
+  color: #64748b;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cbd5e1;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.legend-item:hover {
+  opacity: 0.8;
+}
+
+/* Status Dots with Glow */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot.live { 
+  background: #fde047; 
+  box-shadow: 0 0 8px rgba(253, 224, 71, 0.6); 
+}
+
+.dot.process.light.dark { 
+  background: #2d343d; 
+  box-shadow: 0 0 8px rgba(148, 163, 184, 0.6); 
+}
+
+.dot.completed { 
+  background: #4ade80; 
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.6); 
+}
+/* Sidebar Layout Container */
+.content-layout {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px 1fr; /* Sidebar width vs main content */
+  gap: 30px;
+  padding: 0 20px;
+  align-items: start;
+}
+
+/* Sidebar Legend Styling */
+.side-legend {
+  position: sticky;
+  top: 100px; /* Keeps it visible during scroll */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.legend-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #e2e8f0;
+  font-size: 14px;
+}
+
+/* Dots */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot.live { background: #fde047; box-shadow: 0 0 8px rgba(253, 224, 71, 0.4); }
+.dot.process { background: #1a2029; }
+.dot.completed { background: #4ade80; box-shadow: 0 0 8px rgba(74, 222, 128, 0.4); }
+
+/* Responsive fix */
+@media (max-width: 900px) {
+  .content-layout {
+    grid-template-columns: 1fr;
+  }
+  .side-legend {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+/* ================= LIGHT MODE LEGEND ================= */
+body.light .side-legend {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+body.light .legend-label {
+  color: #475569;
+}
+
+body.light .legend-item {
+  color: #0f172a;
+}
+
+/* Status dots in light mode */
+body.light .dot.live {
+  background: #facc15; /* yellow */
+  box-shadow: 0 0 6px rgba(250, 204, 21, 0.6);
+}
+
+body.light .dot.process {
+  background: #505b69; /* gray */
+  box-shadow: 0 0 6px rgba(148, 163, 184, 0.5);
+}
+
+body.light .dot.completed {
+  background: #22c55e; /* green */
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
+}
+.badge.status {
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 12px;
+}
+/* ================= LIGHT MODE – STATUS BADGES FIX ================= */
+
+body.light .badge.status {
+  background: #f8fafc; /* clean base */
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 12px;
+  box-shadow: none;
+}
+
+/* 🟡 IDEA — strong yellow */
+body.light .badge.status.idea {
+  background: #fffbeb;
+  color: #92400e;
+  border: 1px solid #facc15;
+}
+
+/* 🔵 IN PROCESS — strong blue */
+body.light .badge.status.process {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #60a5fa;
+}
+
+/* 🟢 LIVE — strong green */
+body.light .badge.status.live {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #4ade80;
+}
+/* Base Status Badge Styling */
+.badge.status {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* --- LIGHT MODE SPECIFIC OVERRIDES --- */
+body:not(.dark) .status-live {
+  background-color: #fef9c3; /* Soft Yellow */
+  color: #854d0e;            /* Deep Brown/Gold for contrast */
+  border: 1px solid #fde047;
+}
+
+body:not(.dark) .status-process {
+  background-color: #dbeafe; /* Soft Blue */
+  color: #1e40af;            /* Deep Blue for contrast */
+  border: 1px solid #bfdbfe;
+}
+
+body:not(.dark) .status-completed {
+  background-color: #dcfce7; /* Soft Green */
+  color: #166534;            /* Deep Green for contrast */
+  border: 1px solid #bbf7d0;
+}
+
+/* --- LIGHT MODE SPECIFIC FIX --- */
+body:not(.dark) .status-process {
+  background-color: #eff6ff !important; /* Very light blue background */
+  color: #1d4ed8 !important;            /* Strong, readable blue text */
+  border: 1px solid #bfdbfe !important; /* Border to define the shape */
+  font-weight: 700;                     /* Extra boldness */
+}
+
+/* Ensure the icon is also clear */
+/* 🔵 IN PROCESS — HIGH CONTRAST (LIGHT MODE) */
+body.light .badge.status.process {
+  background: #e0f2fe;          /* stronger blue tint */
+  color: #0c4a6e;               /* dark readable blue text */
+  border: 1.5px solid #38bdf8;  /* visible outline */
+}
+ 
+/* ================= CREATE POST BUTTON ================= */
+.search-cta {
+  height: 52px; /* SAME as search bar */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px;
+  border-radius: 30px;
+  background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* + icon styling */
+.search-cta .plus {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ================= CREATE POST — DARK MODE ================= */
+body.dark .search-cta {
+  height: 52px; /* matches search bar */
+  background: linear-gradient(
+    135deg,
+    #3b82f6 0%,
+    #22c55e 100%
+  );
+  color: #f8fafc;
+}
+
+/* + icon emphasis */
+body.dark .search-cta .plus {
+  color: #e0f2fe;
+}
+
+/* FORCE DARK MODE CREATE POST */
+body.dark .search-cta {
+  background: linear-gradient(135deg, #3b82f6, #22c55e);
+  color: #f8fafc;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.6),
+    inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+/* SIMPLE HOVER — CREATE POST */
+.search-cta:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Dark mode: slightly stronger */
+body.dark .search-cta:hover {
+  opacity: 0.95;
+}
+
+.card-btn {
+  text-decoration: none;   /* removes underline */
+  color: white;            /* keeps text color */
+}
+
+body.dark {
+  background-color: #050505;
+  position: relative;
+  z-index: 1;
+}
+
+/* 🔥 Fixed Background Glow */
+.background-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1; /* Puts it behind everything */
+  pointer-events: none;
+  
+  /* The Colorful Gradients */
+  background:
+    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.4), transparent 50%),
+    radial-gradient(circle at 100% 0%, rgba(34, 197, 94, 0.3), transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(139, 92, 246, 0.3), transparent 60%);
+    
+  /* Soft Blur */
+  filter: blur(50px);
+  
+  /* Animation */
+  animation: glowPulse 8s ease-in-out infinite;
+}
+
+/* Pulse Animation */
+@keyframes glowPulse {
+  0% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.8; transform: scale(1); }
+}
+
+/* Ensure the main content sits above the glow */
+.project-hero, .project-tabs-wrap, .project-grid {
+  position: relative;
+  z-index: 2;
+}
+
+/* Optional: Make cards slightly transparent so glow shows through */
+.detail-card {
+  background: rgba(30, 41, 59, 0.7); /* More transparent than solid color */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ================= MOBILE OPTIMIZATION ================= */
+
+/* 1. Hamburger & Close Button Styles (Hidden on Desktop) */
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 100;
+}
+.menu-btn .bar {
+  width: 28px;
+  height: 3px;
+  background-color: #e2e8f0;
+  border-radius: 4px;
+}
+.close-btn {
+  display: none;
+  font-size: 40px;
+  color: white;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  cursor: pointer;
+}
+
+/* ================= MEDIA QUERY (Max-Width: 768px) ================= */
+@media (max-width: 768px) {
+
+  /* --- A. SIDE DRAWER MENU --- */
+  .menu-btn {
+    display: flex; 
+    z-index: 2000; /* Stays as is */
+  }
+
+  /* Force the nav to be a fixed side drawer */
+  .navbar nav {
+    position: fixed;
+    top: 0;
+    right: -100% !important; /* Force it off-screen initially */
+    width: 75%;
+    height: 100vh;
+    background: #020617; /* Dark Drawer Background */
+    
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    
+    /* Animation & Layering */
+    transition: right 0.4s ease-in-out;
+    z-index: 2001; /* FIX: Higher than menu-btn to cover it */
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+  }
+
+  /* THE CLASS THAT MAKES IT APPEAR */
+  .navbar nav.active {
+    right: 0 !important; /* Force it on-screen */
+  }
+
+  .close-btn {
+    display: block; /* Show X button */
+  }
+
+  /* Menu Link Styling */
+  .navbar nav a {
+    font-size: 20px;
+    color: white !important;
+  }
+
+  /* Theme Switcher sizing in mobile menu */
+  .theme-switch {
+    transform: scale(1.2);
+  }
+
+  /* --- B. PROFILE PICTURE ON TOP --- */
+  .nav-profile {
+    order: -1; /* Move to top of flex container */
+    margin: 0 0 20px 0;
+    display: block;
+  }
+  .nav-profile img {
+    width: 80px;
+    height: 80px;
+    border: 3px solid rgba(255,255,255,0.1);
+  }
+
+  /* --- C. SEARCH BAR FIX --- */
+  .hero-inner {
+    padding: 20px;
+  }
+  
+  .search-row {
+    flex-direction: column; /* Stack input and button */
+    width: 100%;
+    gap: 15px;
+  }
+
+  .search-box {
+    width: 100%;
+    min-width: unset; /* Remove the 360px restriction */
+  }
+
+  .search-cta {
+    width: 100%; /* Full width button */
+    justify-content: center;
+  }
+
+  /* --- D. FILTERS (SCROLLABLE) --- */
+  .filters {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+    overflow: visible; /* Fix: Allow children to scroll */
+  }
+
+  /* 1. The Container */
+  .pills {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;       /* Enable horizontal scrolling */
+    gap: 12px;
+    padding-bottom: 5px;    /* Room for touch interaction */
+    
+    /* Smooth scrolling for iOS */
+    -webkit-overflow-scrolling: touch; 
+    
+    /* Hide the scrollbar (optional, looks cleaner) */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  /* Hide scrollbar for Chrome/Safari */
+  .pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 2. CRITICAL FIX: The Individual Buttons */
+  .pill {
+    flex-shrink: 0;      /* 🛑 Forces them NOT to squish */
+    white-space: nowrap; /* Keeps text on one line */
+  }
+
+  .sort {
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* --- E. LEGEND (Horizontal Scroll on Mobile) --- */
+  .content-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+  }
+
+  .side-legend {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 15px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+/* ================= DARK MODE SEPARATION FIX ================= */
+
+/* 1. Make the Bottom Area (Content) darker and flat */
+/* ================= DARK MODE SEPARATION (CLEAN SLATE) ================= */
+
+/* 1. Content Area */
+body.dark {
+  background: #0B0D11; /* Very dark gray, not pitch black */
+}
+
+/* 2. Header Area */
+body.dark .hero {
+  background: linear-gradient(
+    180deg, 
+    #161b22 0%,       /* Lighter Gray top */
+    #0d1117 100%      /* Darker Gray bottom */
+  );
+
+  /* Subtle White/Gray Border */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  
+  position: relative;
+  z-index: 5;
+}
+
+/* 3. Silver/White Glow (More subtle) */
+body.dark .hero::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  
+  /* White/Silver Glow */
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(244, 235, 235, 0.3) 50%, 
+    transparent 100%
+  );
+  filter: blur(1px);
+}
+/* ================= MENU BUTTON COLORS ================= */
+
+/* 1. Default (Light Mode) -> Make bars DARK so they are visible */
+.menu-btn .bar {
+  background-color: #0f172a !important; /* Dark Blue/Black */
+}
+
+/* 2. Dark Mode -> Make bars WHITE */
+body.dark .menu-btn .bar {
+  background-color: #ffffff !important;
+}
+.nav-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;}
+
+
+
+
+.hero-title {
+  /* This adds space BELOW the word "Projects" */
+ 
+
+  /* This adds space ABOVE the word "Projects" */
+  padding-top: 36px; 
+}
+.project-image-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px; /* Matches your card styling */
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-image-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the photo doesn't stretch */
+}
+.demo-btn {
+  display: inline-flex;  /* Allows alignment of items inside */
+  align-items: center;   /* Centers icon and text vertically */
+  justify-content: center; /* Centers content horizontally */
+  gap: 8px;              /* Adds consistent space between icon and text */
+  padding: 12px 24px;    /* Ensures consistent internal spacing */
+  line-height: 1;        /* Prevents text descenders from pushing the box */
+  white-space: nowrap;   /* Prevents the text from breaking into two lines */
+}
+/* Container for the buttons */
+.project-cta-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Base style for both buttons */
+.follow-project-btn, .demo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px; /* Fixed height ensures they match perfectly */
+  padding: 0 24px;
+  border-radius: 24px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+}
+
+/* Follow Button specific (Solid) */
+.follow-project-btn {
+  background: linear-gradient(135deg, #7c3aed, #2dd4bf);
+  color: white;
+}
+
+/* Buy Now Button specific (Transparent/Glass) */
+.demo-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.demo-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+/* Badge Styles */
+.type-badge {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+.type-badge.announcement {
+  background: rgba(124, 58, 237, 0.2);
+  color: #a78bfa;
+}
+
+.type-badge.update {
+  background: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+}
+
+/* Major News Highlighting */
+.announcement-style {
+  border-left: 3px solid #7c3aed !important;
+  background: rgba(124, 58, 237, 0.05);
+  padding: 16px !important;
+  border-radius: 8px;
+}
+
+/* Mini Filters inside the tab */
+.mini-pills {
+  display: flex;
+  gap: 8px;
+}
+
+.mini-pill {
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+  color: #94a3b8;
+}
+
+.mini-pill.active {
+  background: white;
+  color: black;
+  border-color: white;
+}
+.review-list {
+  max-height: 500px; /* Limits the height */
+  overflow-y: auto;  /* Adds scrollbar if list is long */
+  padding-right: 10px;
+}
+
+/* Custom Scrollbar for Dark Theme */
+.review-list::-webkit-scrollbar {
+  width: 6px;
+}
+.review-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+.impact-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.impact-stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.impact-stat-card:hover {
+  transform: translateY(-5px);
+  border-color: #22c55e;
+}
+
+.stat-icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.stat-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #22c55e;
+  margin-bottom: 8px;
+}
+
+.stat-desc {
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+/* 1. Hide all tab contents by default */
+
+/* 2. ONLY show the content if it's the one we want */
+/* We will use JavaScript to change the display to 'block' */

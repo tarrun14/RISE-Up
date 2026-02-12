@@ -1,0 +1,231 @@
+/* =========================================
+   1. CORE VARIABLES (REQUIRED for colors to work)
+   ========================================= */
+:root {
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;       /* This makes the menu White in light mode */
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: #cbd5e1;
+  --accent-color: #7c3aed;
+  --input-bg: #ffffff;
+}
+
+/* Dark Mode Colors */
+body.dark {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;      /* This makes the menu Dark Blue in dark mode */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
+  --accent-color: #a78bfa;
+  --input-bg: #0f172a;
+}
+
+/* =========================================
+   2. GLOBAL STYLES
+   ========================================= */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  margin: 0;
+  padding-top: 80px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================
+   3. CHECKOUT FORM STYLES
+   ========================================= */
+.checkout-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 40px;
+  padding: 20px;
+}
+
+.checkout-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+input[type="text"], input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Payment Section */
+.payment-options {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.payment-card {
+  flex: 1;
+  border: 2px solid var(--border-color);
+  background: var(--card-bg);
+  padding: 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.payment-card input:checked + span {
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.place-order-btn {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.place-order-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+/* Summary Card */
+.summary-card {
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.summary-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  color: var(--text-secondary);
+}
+
+.grand-total {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text-primary);
+  margin-top: 15px;
+}
+
+.impact-note {
+  margin-top: 25px;
+  background: #f0fdf4;
+  padding: 15px;
+  border-radius: 12px;
+  color: #166534;
+  font-size: 14px;
+}
+
+/* =========================================
+   4. NAVIGATION & MOBILE MENU (FIXED)
+   ========================================= */
+
+/* Hide mobile elements on Desktop */
+.menu-btn, .close-btn {
+  display: none;
+}
+
+/* TABLET/MOBILE STYLES */
+@media (max-width: 900px) {
+  .checkout-container {
+    grid-template-columns: 1fr; /* Stack layout */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Show Hamburger on Mobile */
+  .menu-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  /* Show Close Button inside Menu */
+  .close-btn {
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 35px;
+    cursor: pointer;
+    color: var(--text-primary);
+    z-index: 10000; /* Ensure Close button is on top */
+  }
+
+  /* THE FIXED MENU CONTAINER */
+  #navMenu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hidden by default */
+    width: 280px;
+    height: 100vh;
+    
+    /* CRITICAL: Uses the variable defined at top of file */
+    background-color: var(--card-bg); 
+    
+    /* CRITICAL: Ensures menu is above everything else */
+    z-index: 9999; 
+    
+    /* Shadow */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2); 
+    
+    display: flex;
+    flex-direction: column;
+    padding: 100px 30px;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Active State (When JS adds class 'active') */
+  #navMenu.active {
+    right: 0; 
+  }
+
+  /* Link Styles */
+  #navMenu a {
+    color: var(--text-primary);
+    font-size: 20px;
+    margin: 15px 0;
+    font-weight: 600;
+    text-decoration: none;
+  }
+}
